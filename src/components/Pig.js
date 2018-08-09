@@ -33,9 +33,9 @@ class Pig extends Component {
             return(
                 <div>
                     <h2>{this.props.pig.name}</h2>
-                    <p>Speciality: {this.props.pig.specialty}</p>
-                    <p>Highest Medal: {this.props.pig['highest medal achieved']}  </p>
-                    <p>Weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water: {this.props.pig['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']}  </p>
+                    <p> <strong>Speciality:</strong> {this.props.pig.specialty}</p>
+                    <p><strong>Highest Medal:</strong> {this.props.pig['highest medal achieved']}  </p>
+                    <p><strong>Weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water:</strong> {this.props.pig['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']}  </p>
                 </div>
             )
         }
