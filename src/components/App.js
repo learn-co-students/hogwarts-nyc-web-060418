@@ -8,7 +8,8 @@ import SortForm from './SortForm';
 class App extends Component {
 
   state = {
-    pigList: hogs
+    pigList: hogs,
+    onlyGreased: false
   }
 
   sortPigsAlpha = () => {
@@ -46,6 +47,7 @@ class App extends Component {
   clickAndSortName = (event) => {
     event.preventDefault()
     this.setState({
+      ...this.state,
       pigList: this.sortPigsAlpha()
     })
   }
@@ -53,15 +55,28 @@ class App extends Component {
   clickAndSortWeight = (event) => {
     event.preventDefault()
     this.setState({
+      ...this.state,
       pigList: this.sortPigsWeight().reverse()
     })
   }
 
+  addOrRemoveGrease = () => {
+    if (this.state.onlyGreased === false){
+      this.setState({
+        ...this.state,
+        onlyGreased: true
+      })
+    } else if (this.state.onlyGreased === true){
+      this.setState({
+        ...this.state,
+        onlyGreased: false
+      })
+    }
+  }
+
+
   
   render() {
-
-    // this.sortPigsAlpha()
-    // debugger;
 
     return (
       <div className="App">
