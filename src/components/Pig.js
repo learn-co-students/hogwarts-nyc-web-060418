@@ -5,21 +5,33 @@ class Pig extends Component {
     state = {
         isClicked: false
     }
+
+    handleClick = () => {
+        if (this.state.isClicked === false){
+            this.setState({
+                isClicked: true
+            })
+        } else {
+            this.setState({
+                isClicked: false
+            })
+        }
+    }
     
     showStatsFn = () => {
         let photoFileName;
         photoFileName = this.props.pig.name.replace(/ /g, "_").toLowerCase()
 
         if (this.state.isClicked === false){
-            return (<div className="ui eight wide column">
+            return (
+                <div>
                 <h2>{this.props.pig.name}</h2>
-               
                 <img src={`../hog-imgs/${photoFileName}.jpg`} alt={this.props.pig.name} />
-
-            </div>)
+                </div>
+            )
         } else {
             return(
-                <div className="ui eight wide column">
+                <div>
                     <h2>{this.props.pig.name}</h2>
                     <p>Speciality: {this.props.pig.specialty}</p>
                     <p>Highest Medal: {this.props.pig['highest medal achieved']}  </p>
@@ -31,9 +43,8 @@ class Pig extends Component {
     
     render() {
 
-        // debugger;
         return (
-            <div>
+            <div className="ui eight wide column" onClick={this.handleClick}>
                 {this.showStatsFn()}
             </div>
         );
