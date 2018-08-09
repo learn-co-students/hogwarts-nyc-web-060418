@@ -27,16 +27,23 @@ class App extends Component {
     )
   }
 
+  clickAndSortName = (event) => {
+    event.preventDefault()
+    this.setState({
+      pigList: this.sortPigsAlpha()
+    })
+  } 
+
   
   render() {
 
-    this.sortPigsAlpha()
-    debugger;
+    // this.sortPigsAlpha()
+    // debugger;
 
     return (
       <div className="App">
           < Nav />
-          <SortForm />
+          <SortForm sortByName={this.clickAndSortName}/>
           <br/>
           <PigContainer pigs={this.state.pigList}/>
 

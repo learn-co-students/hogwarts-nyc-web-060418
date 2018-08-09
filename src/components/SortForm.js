@@ -5,7 +5,7 @@ class SortForm extends Component {
         return (
             <form>
                 
-                <button>Sort Alphabetically By Name</button>
+                <button onClick={this.props.sortByName}>Sort Alphabetically By Name</button>
                 <button>Sort from Heaviest to Lightest </button>
                 <select name="Greased?">
                     <option value="all">All Pigs</option>
