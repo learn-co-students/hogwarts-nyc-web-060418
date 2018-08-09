@@ -27,12 +27,35 @@ class App extends Component {
     )
   }
 
+  sortPigsWeight = () => {
+    let sortedArr = [...this.state.pigList]
+
+    return sortedArr.sort(
+      (pigObj1, pigObj2) => {
+        if (pigObj1['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] < pigObj2['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) {
+          return -1;
+        } else if (pigObj1['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > pigObj2['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) {
+          return 1;
+        } else {
+          return 0
+        }
+      }
+    )
+  }
+
   clickAndSortName = (event) => {
     event.preventDefault()
     this.setState({
       pigList: this.sortPigsAlpha()
     })
-  } 
+  }
+  
+  clickAndSortWeight = (event) => {
+    event.preventDefault()
+    this.setState({
+      pigList: this.sortPigsWeight().reverse()
+    })
+  }
 
   
   render() {
@@ -43,7 +66,7 @@ class App extends Component {
     return (
       <div className="App">
           < Nav />
-          <SortForm sortByName={this.clickAndSortName}/>
+          <SortForm sortByName={this.clickAndSortName} sortByWeight={this.clickAndSortWeight}/>
           <br/>
           <PigContainer pigs={this.state.pigList}/>
 
