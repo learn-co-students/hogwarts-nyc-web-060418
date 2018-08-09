@@ -12,7 +12,7 @@ class Pig extends Component {
     
     render() {
         let photoFileName; 
-        photoFileName = this.props.pig.name.toLowerCase()
+        photoFileName = this.props.pig.name.replace(/ /g, "_").toLowerCase()
         // debugger;
         return (
             <div className="ui eight wide column">
@@ -21,7 +21,7 @@ class Pig extends Component {
                 <img src= {`../hog-imgs/${photoFileName}.jpg`} alt={this.props.pig.name}/>
                 
 
-                <img src = '../hog-imgs/porkchop.jpg' alt = "porkchop"/>
+                {/* <img src = {`/public/hog-imgs/${photoFileName}.jpg' alt = ${this.props.pig.name}`}/> */}
 
 
             </div>
