@@ -74,6 +74,29 @@ class App extends Component {
     }
   }
 
+  filterPigs = () => {
+    let sortedArr = [...hogs]
+    return sortedArr.filter(hog => hog.greased)
+  }
+  
+  greasyPigsOnly = (event) => {
+    event.preventDefault()
+    this.addOrRemoveGrease()
+    if (this.state.onlyGreased === true) {
+      this.setState({
+        ...this.state,
+        pigList: hogs
+      })
+    } else if (this.state.onlyGreased === false) {
+      this.setState({
+        ...this.state,
+        pigList: this.filterPigs()
+      })
+    }
+
+  }
+  // gamed the system - took advantage of async here above on line 85 and 90
+
 
   
   render() {
@@ -81,7 +104,7 @@ class App extends Component {
     return (
       <div className="App">
           < Nav />
-          <SortForm sortByName={this.clickAndSortName} sortByWeight={this.clickAndSortWeight}/>
+          <SortForm sortByName={this.clickAndSortName} sortByWeight={this.clickAndSortWeight} filterGrease={this.greasyPigsOnly}/>
           <br/>
           <PigContainer pigs={this.state.pigList}/>
 
